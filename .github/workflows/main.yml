@@ -30,9 +30,17 @@ jobs:
         with:
           ruby-version: 2.6.3
           bundler-cache: true
-          
+           
       - name: Install dependencies
         run: bundle install
+        
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          
+      - name: Install js dependencies
+        run: yarn install --check-files
         
       - name: Lint
         run: rubocop
