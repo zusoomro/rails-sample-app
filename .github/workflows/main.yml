@@ -43,7 +43,7 @@ jobs:
         run: yarn install --check-files
         
       - name: Lint
-        run: rubocop
+        run: bundle exec rubocop
         
       - name: Run tests
         run: bundle exec rails test
