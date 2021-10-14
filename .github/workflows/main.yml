@@ -43,8 +43,8 @@ jobs:
       - name: Install js dependencies
         run: yarn install --check-files
         
-      - name: Lint
-        run: bundle exec rubocop
+#       - name: Lint
+#         run: bundle exec rubocop
         
       - name: Run tests
         run: bundle exec rails test
