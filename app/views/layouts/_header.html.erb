@@ -4,7 +4,14 @@
     <p>
       <%= link_to "Home",   root_path %> /
       <%= link_to "Help",   help_path %> /
-      <%= link_to "Log in", '#' %>
+      <% if logged_in? %>
+        <%= link_to "Users", '#' %> / 
+        <%= link_to "Profile", current_user %> /
+        <%= link_to "Settings", '#' %> /
+        <%= link_to "Log out", logout_path, method: :delete %>
+      <% else %>
+        <%= link_to "Log in", login_path %>
+      <% end %>
     </p>
   </div>
 </header>
