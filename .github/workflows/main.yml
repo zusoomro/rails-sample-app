@@ -29,9 +29,13 @@ jobs:
         uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: 2.6.3
+          bundler-cache: true
           
       - name: Install dependencies
         run: bundle install
+        
+      - name: Lint
+        run: rubocop
         
       - name: Run tests
         run: bundle exec rails test
