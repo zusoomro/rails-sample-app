@@ -24,7 +24,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run tests
-        run: rails test
+      
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        with:
+          ruby-version: 2.6.3
+          
+      - name: Install dependencies
+        run: bundle install
+        
+     - name: Run tests
+        run: bundle exec rails test
